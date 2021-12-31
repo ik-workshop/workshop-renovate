@@ -1,0 +1,5 @@
+# https://docs.renovatebot.com/configuration-options/#autoReplaceStringTemplate
+---
+# The image of the service <registry>/<repo>/<image>:<tag>
+image: my.new.registry/aRepository/andImage:1.21-alpine
+

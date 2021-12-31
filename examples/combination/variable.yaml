@@ -1,0 +1,7 @@
+# https://docs.renovatebot.com/configuration-options/#combination
+---
+prometheus_image: "prom/prometheus"  // a comment
+prometheus_version: "v2.21.0" // a comment
+---
+thanos_image: "prom/prometheus"  // a comment
+thanos_version: "0.15.0" // a comment

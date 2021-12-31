@@ -1,0 +1,15 @@
+{
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "values.yaml$"
+      ],
+      "matchStrings": [
+        "image:\\s+(?<depName>my\\.old\\.registry\\/aRepository\\/andImage):(?<currentValue>[^\\s]+)"
+      ],
+      "depNameTemplate": "my.new.registry/aRepository/andImage",
+      "autoReplaceStringTemplate": "image: {{{depName}}}:{{{newValue}}}",
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
