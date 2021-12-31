@@ -33,6 +33,15 @@
 
 ## Resources
 
+---
+
+### Renovate Docs
+
+- [Configuration Options](https://docs.renovatebot.com/configuration-options/#registryurls)
+- [Documentation Examples](./examples)
+
+---
+
 <!-- resources -->
 [template.generate]: https://github.com/ik-workshop/workshop-blueprint/generate
 [code-style.badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
