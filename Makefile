@@ -27,7 +27,7 @@ run: ## Run renovate locally
 		-e DOCKER_HUB_USERNAME \
 		-e DOCKER_HUB_TOKEN \
 		-e LOG_LEVEL=$(LOG_LEVEL) \
-		-v ${PWD}/cache:/tmp/renovate \
+		-v ${PWD}/.cache:/tmp/renovate \
 		-v ${PWD}/config/config.js:/usr/src/app/config.js \
 		-v ${PWD}/config/repos.json:/usr/src/app/repos.json \
 		-v ${PWD}/config/regexManagers.js:/usr/src/app/regexManagers.js \
