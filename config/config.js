@@ -13,11 +13,11 @@ if (!process.env.DOCKER_HUB_TOKEN) {
 }
 
 module.exports = {
-  "platform": "gitlab",
-  "endpoint": "https://gitlab.com/api/v4/",
+  "platform": "github",
   "token": process.env.RENOVATE_TOKEN,
   "repositories": JSON.parse(Fs.readFileSync('repos.json', 'utf8')),
   "logLevel": process.env.LOG_LEVEL,
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
   "pruneStaleBranches": false,
