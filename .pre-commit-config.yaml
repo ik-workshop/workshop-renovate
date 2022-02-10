@@ -15,6 +15,10 @@ repos:
   - id: check-toml
     files: ^templates/
   - id: check-vcs-permalinks
+    exclude: |
+      (?x)(
+        ^.cache/
+      )
   - id: check-xml
   - id: check-yaml
   - id: debug-statements
@@ -24,6 +28,10 @@ repos:
   - id: detect-private-key
   - id: double-quote-string-fixer
   - id: end-of-file-fixer
+    exclude: |
+      (?x)(
+        ^.cache/
+      )
   - id: fix-byte-order-marker
   - id: fix-encoding-pragma
   - id: mixed-line-ending
