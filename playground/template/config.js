@@ -12,6 +12,14 @@ if (!process.env.DOCKER_HUB_TOKEN) {
   throw new Error('Missing "DOCKER_HUB_TOKEN"');
 }
 
+const defaultRules = [
+  {
+    "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+    "addLabels": [`${process.env.EXCERCISE_NAME}`, "{{depType}}", "{{datasource}}", "{{updateType}}"],
+    "commitMessageSuffix": `[${process.env.EXCERCISE_NAME}]`
+  },
+]
+
 module.exports = {
   "platform": "github",
   "token": process.env.RENOVATE_TOKEN,
@@ -37,6 +45,6 @@ module.exports = {
   "rebaseWhen": "behind-base-branch",
   "labels": ["renovate"],
   "additionalBranchPrefix": "{{packageFileDir}}-",
-  "packageRules": rules,
+  "packageRules": [...defaultRules, ...rules],
   "regexManagers": managers,
 }
