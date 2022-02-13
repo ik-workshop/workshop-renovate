@@ -36,3 +36,9 @@ labels:
     color: fcba33
   - name: ex5
     color: fcba17
+  - name: ex5
+    color: fcba24
+# extra labels
+  - name: helm
+    color: 42e9f5
+    description: Helm helps you manage Kubernetes applications
