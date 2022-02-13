@@ -23,6 +23,7 @@ const defaultRules = [
 module.exports = {
   "platform": "github",
   "token": process.env.RENOVATE_TOKEN,
+  "endpoint": "https://api.github.com/",
   "repositories": JSON.parse(Fs.readFileSync('repos.json', 'utf8')),
   "logLevel": process.env.LOG_LEVEL,
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
@@ -32,6 +33,7 @@ module.exports = {
   "recreateClosed": true,
   "onboarding": false,
   "requireConfig": false,
+  "extends": ["github>whitesource/merge-confidence:beta"],
   "hostRules": [
     {
       "hostType": "docker",
@@ -40,7 +42,7 @@ module.exports = {
     }
   ],
   "semanticCommits": "enabled",
-  "baseBranches": ["main"],
+  "baseBranches": ["master"],
   "printConfig": false,
   "rebaseWhen": "behind-base-branch",
   "labels": ["renovate"],

@@ -40,7 +40,7 @@ module.exports = {
     }
   ],
   "semanticCommits": "enabled",
-  "baseBranches": ["main"],
+  "baseBranches": ["master"],
   "printConfig": false,
   "rebaseWhen": "behind-base-branch",
   "labels": ["renovate"],
