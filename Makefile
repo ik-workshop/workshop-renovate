@@ -23,17 +23,18 @@ validate: ## Validate files with pre-commit hooks
 
 run: check-cmd
 run: ## Run renovate locally name=ex5
-	docker run --rm -it \
+	@docker run --rm -it \
 		-e RENOVATE_TOKEN \
 		-e DOCKER_HUB_USERNAME \
 		-e DOCKER_HUB_TOKEN \
 		-e LOG_LEVEL=$(LOG_LEVEL) \
+		-e EXCERCISE_NAME=$(name) \
 		-v ${PWD}/.cache:/tmp/renovate \
 		-v ${PWD}/playground/$(name)/config.js:/usr/src/app/config.js \
 		-v ${PWD}/config/repos.json:/usr/src/app/repos.json \
 		-v ${PWD}/playground/$(name)/regexManagers.js:/usr/src/app/regexManagers.js \
 		-v ${PWD}/playground/$(name)/packageRules.js:/usr/src/app/packageRules.js \
-		$(CI_RENOVATE_IMAGE) renovate --dry-run=true
+		$(CI_RENOVATE_IMAGE) renovate --dry-run=false
 
 check-cmd:
 ifndef name
@@ -52,3 +53,7 @@ skeleton: check-cmd
 	@touch sandbox/$(name)/.gitkeep
 	@touch exercises/$(name).README.md
 	@echo -e "# Exercise $(name). TODO(description) \n\n## Contents \n\n## Resources" >> exercises/$(name).README.md
+
+run5: ## Run exercise 5
+	@echo "Run Exercise 5"
+	@$(MAKE) run name=ex5
