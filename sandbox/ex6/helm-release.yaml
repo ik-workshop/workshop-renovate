@@ -21,4 +21,4 @@ spec:
   chart:
     repository: https://helm.datadoghq.com/
     name: datadog
-    version: 1.0.1
+    version: 1.39.9
