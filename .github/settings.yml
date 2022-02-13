@@ -24,3 +24,15 @@ repository:
 
 branches:
   - name: master
+
+labels:
+  - name: ex1
+    color: fcba03
+  - name: ex2
+    color: fcba11
+  - name: ex3
+    color: fcba22
+  - name: ex4
+    color: fcba33
+  - name: ex5
+    color: fcba17

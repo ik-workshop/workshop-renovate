@@ -15,7 +15,7 @@ if (!process.env.DOCKER_HUB_TOKEN) {
 const defaultRules = [
   {
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-    "addLabels": ["{{depType}}", "{{datasource}}", "{{updateType}}", `${process.env.EXCERCISE_NAME}`],
+    "addLabels": [`${process.env.EXCERCISE_NAME}`, "{{depType}}", "{{datasource}}", "{{updateType}}"],
     "commitMessageSuffix": `[${process.env.EXCERCISE_NAME}]`
   },
 ]
