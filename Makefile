@@ -52,8 +52,12 @@ skeleton: check-cmd
 	@mkdir sandbox/$(name)
 	@touch sandbox/$(name)/.gitkeep
 	@touch exercises/$(name).README.md
-	@echo -e "# Exercise $(name). TODO(description) \n\n## Contents \n\n## Resources" >> exercises/$(name).README.md
+	@echo "# Exercise $(name). TODO(description) \n\n## Contents \n\n## Resources" >> exercises/$(name).README.md
 
 run5: ## Run exercise 5
 	@echo "Run Exercise 5"
 	@$(MAKE) run name=ex5
+
+run6: ## Run exercise 6
+	@echo "Run Exercise 6"
+	@$(MAKE) run name=ex6
