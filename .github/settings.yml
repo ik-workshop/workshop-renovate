@@ -36,7 +36,7 @@ labels:
     color: fcba33
   - name: ex5
     color: fcba17
-  - name: ex5
+  - name: ex6
     color: fcba24
 # extra labels
   - name: helm
