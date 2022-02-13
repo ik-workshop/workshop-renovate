@@ -20,8 +20,8 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
-- [Create](#create)
-- [Resources](#resources)
+- [Renovate Docs](#renovate-docs)
+- [TODO](#todo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -33,12 +33,14 @@
 
 ## Resources
 
----
-
 ### Renovate Docs
 
 - [Configuration Options](https://docs.renovatebot.com/configuration-options/#registryurls)
 - [Documentation Examples](./examples)
+
+## TODO
+
+- [] Renovate `exercise` label
 
 ---
 

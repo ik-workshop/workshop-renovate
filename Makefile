@@ -48,5 +48,7 @@ skeleton: check-cmd
 	@mkdir playground/$(name)
 	@cp -r playground/template/ playground/$(name)/
 	@tree playground/$(name)
+	@mkdir sandbox/$(name)
+	@touch sandbox/$(name)/.gitkeep
 	@touch exercises/$(name).README.md
-	@echo -e "# Exercise $(name). Description \n\n## Contents" >> exercises/$(name).README.md
+	@echo -e "# Exercise $(name). TODO(description) \n\n## Contents \n\n## Resources" >> exercises/$(name).README.md
