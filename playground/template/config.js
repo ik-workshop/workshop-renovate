@@ -14,11 +14,18 @@ if (!process.env.DOCKER_HUB_TOKEN) {
 
 const defaultRules = [
   {
+    "description": "Automatically add labels and message prefix",
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-    "addLabels": [`${process.env.EXCERCISE_NAME}`, "{{depType}}", "{{datasource}}", "{{updateType}}"],
-    "commitMessageSuffix": `[${process.env.EXCERCISE_NAME}]`
+    "addLabels": [process.env.EXCERCISE_NAME, 'kind/chore', "{{depType}}", "{{datasource}}", "{{updateType}}"],
+    "commitMessageSuffix": `({{packageFileDir}}) [${process.env.EXCERCISE_NAME}]`
   },
+  {
+    "matchPackageNames": ["github-actions", "terraform"],
+    "enabled": false
+  }
 ]
+
+const enableManagers = ["helm", "regex"]
 
 module.exports = {
   "platform": "github",
@@ -47,6 +54,7 @@ module.exports = {
   "rebaseWhen": "behind-base-branch",
   "labels": ["renovate"],
   "additionalBranchPrefix": "{{packageFileDir}}-",
+  "enabledManagers": enableManagers,
   "packageRules": [...defaultRules, ...rules],
   "regexManagers": managers,
 }

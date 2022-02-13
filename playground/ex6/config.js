@@ -16,7 +16,7 @@ const defaultRules = [
   {
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
     "addLabels": ["{{datasource}}", "{{updateType}}", process.env.EXCERCISE_NAME, 'kind/chore'],
-    "commitMessageSuffix": `[${process.env.EXCERCISE_NAME}]`
+    "commitMessageSuffix": `({{packageFile}})`,
   },
   {
     "matchManagers": ["github-actions", "terraform"],
