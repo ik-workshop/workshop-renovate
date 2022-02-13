@@ -15,9 +15,13 @@ if (!process.env.DOCKER_HUB_TOKEN) {
 const defaultRules = [
   {
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-    "addLabels": [`${process.env.EXCERCISE_NAME}`, "{{depType}}", "{{datasource}}", "{{updateType}}"],
+    "addLabels": ["{{datasource}}", "{{updateType}}", process.env.EXCERCISE_NAME, 'kind/chore'],
     "commitMessageSuffix": `[${process.env.EXCERCISE_NAME}]`
   },
+  {
+    "matchManagers": ["github-actions", "terraform"],
+    "enabled": false
+  }
 ]
 
 module.exports = {
