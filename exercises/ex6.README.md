@@ -10,6 +10,8 @@
 
 # Exercise ex6. Helm Charts Version Update Default
 
+Update values for helm charts.
+
 ## Contents
 
 ## Resources

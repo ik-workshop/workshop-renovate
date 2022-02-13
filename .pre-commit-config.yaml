@@ -21,6 +21,7 @@ repos:
       )
   - id: check-xml
   - id: check-yaml
+    args: ['--allow-multiple-documents']
   - id: debug-statements
   - id: destroyed-symlinks
   - id: detect-aws-credentials

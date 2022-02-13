@@ -11,6 +11,7 @@ Because there is no general lookupName, you have to use the describe images filt
 ## Contents
 
 - [Output](#output)
+- [TODO](#todo)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -77,6 +78,11 @@ make run5
   }
 ]
 ```
+
+## TODO
+
+- [Support regions](https://github.com/renovatebot/renovate/blob/main/lib/datasource/aws-machine-image/index.ts)
+- [AWS CLI describe image](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)
 
 ## Resources
 
