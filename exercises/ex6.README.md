@@ -7,6 +7,7 @@ Update values for helm charts.
 ## Contents
 
 - [Output](#output)
+- [Pattern Matching](#pattern-matching)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -17,6 +18,14 @@ Without AWS credentials following output
 
 ```sh
 make run5
+```
+
+## Pattern Matching
+
+```yaml
+^#\s*chart:\s*repository=(?<registryUrl>.*?)$\n.*?(?<depName>.*?)_HELM_CHART_VERSION=\"(?<currentValue>.*)\"
+# chart: repository=https://helm.datadoghq.com
+DATADOG_HELM_CHART_VERSION="2.27.8"
 ```
 
 ## Resources
