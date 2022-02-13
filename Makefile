@@ -21,15 +21,32 @@ hooks: ## install pre commit.
 validate: ## Validate files with pre-commit hooks
 	@pre-commit run --all-files
 
-run: ## Run renovate locally
+run: check-cmd
+run: ## Run renovate locally name=ex5
 	docker run --rm -it \
 		-e RENOVATE_TOKEN \
 		-e DOCKER_HUB_USERNAME \
 		-e DOCKER_HUB_TOKEN \
 		-e LOG_LEVEL=$(LOG_LEVEL) \
 		-v ${PWD}/.cache:/tmp/renovate \
-		-v ${PWD}/config/config.js:/usr/src/app/config.js \
+		-v ${PWD}/playground/$(name)/config.js:/usr/src/app/config.js \
 		-v ${PWD}/config/repos.json:/usr/src/app/repos.json \
-		-v ${PWD}/config/regexManagers.js:/usr/src/app/regexManagers.js \
-		-v ${PWD}/config/packageRules.js:/usr/src/app/packageRules.js \
+		-v ${PWD}/playground/$(name)/regexManagers.js:/usr/src/app/regexManagers.js \
+		-v ${PWD}/playground/$(name)/packageRules.js:/usr/src/app/packageRules.js \
 		$(CI_RENOVATE_IMAGE) renovate --dry-run=true
+
+check-cmd:
+ifndef name
+		$(error The name variable is not set)
+endif
+ifneq ($(findstring ex,$(name)),ex)
+		$(error The name variable does not contain 'ex')
+endif
+
+skeleton: ## Render exercise skeleto from templates locally and create them in sandbox foler.
+skeleton: check-cmd
+	@mkdir playground/$(name)
+	@cp -r playground/template/ playground/$(name)/
+	@tree playground/$(name)
+	@touch exercises/$(name).README.md
+	@echo -e "# Exercise $(name). Description \n\n## Contents" >> exercises/$(name).README.md

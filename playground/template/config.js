@@ -20,21 +20,10 @@ module.exports = {
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "pruneStaleBranches": false,
-  "recreateClosed": false,
+  "pruneStaleBranches": true,
+  "recreateClosed": true,
   "onboarding": false,
   "requireConfig": false,
-  "onboardingConfig": {
-    "extends": [
-      ":ignoreUnstable",
-      ":rebaseStalePrs",
-      "workarounds:all",
-      ":semanticPrefixFixDepsChoreOthers",
-      ":autodetectPinVersions",
-      "group:monorepos",
-      "group:recommended"
-    ]
-  },
   "hostRules": [
     {
       "hostType": "docker",
@@ -43,14 +32,10 @@ module.exports = {
     }
   ],
   "semanticCommits": "enabled",
-  "baseBranches": ["master", "main"],
+  "baseBranches": ["main"],
   "printConfig": false,
   "rebaseWhen": "behind-base-branch",
   "labels": ["renovate"],
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "addLabels": ["vulnerability"]
-  },
   "additionalBranchPrefix": "{{packageFileDir}}-",
   "packageRules": rules,
   "regexManagers": managers,
