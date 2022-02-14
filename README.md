@@ -42,6 +42,8 @@
 
 - [x] Renovate `exercise` label
 - [ ] Dcoker with Hadolint
+- [ ] Limit dependency versions
+- [ ] Makefile renovate it
 
 ---
 

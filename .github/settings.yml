@@ -42,3 +42,12 @@ labels:
   - name: helm
     color: 42e9f5
     description: Helm helps you manage Kubernetes applications
+  - name: github-tags
+    color: 403c3c
+    description: Github Tags Datasource
+  - name: github-releases
+    color: 403c3c
+    description: Github Releases Datasource
+  - name: gitlab-packages
+    color: 403c3c
+    description: Github Packages Datasource

@@ -14,12 +14,13 @@ if (!process.env.DOCKER_HUB_TOKEN) {
 
 const defaultRules = [
   {
+    "description": "Automatically add labels and message prefix",
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-    "addLabels": ["{{datasource}}", "{{updateType}}", process.env.EXCERCISE_NAME, 'kind/chore'],
+    "addLabels": [process.env.EXCERCISE_NAME, 'kind/chore', "{{datasource}}", "{{updateType}}"],
     "commitMessageSuffix": '({{packageFile}})',
   },
   {
-    "matchManagers": ["github-actions", "terraform"],
+    "matchPackageNames": ["github-actions", "terraform"],
     "enabled": false
   }
 ]
@@ -29,6 +30,7 @@ const enableManagers = ["regex"]
 module.exports = {
   "platform": "github",
   "token": process.env.RENOVATE_TOKEN,
+  "endpoint": "https://api.github.com/",
   "repositories": JSON.parse(Fs.readFileSync('repos.json', 'utf8')),
   "logLevel": process.env.LOG_LEVEL,
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
@@ -52,7 +54,7 @@ module.exports = {
   "rebaseWhen": "behind-base-branch",
   "labels": ["renovate"],
   "additionalBranchPrefix": "{{packageFileDir}}-",
+  "enabledManagers": enableManagers,
   "packageRules": [...defaultRules, ...rules],
   "regexManagers": managers,
-  "enabledManagers": enableManagers,
 }

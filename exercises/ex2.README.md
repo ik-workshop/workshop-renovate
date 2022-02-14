@@ -11,9 +11,15 @@ Renovate supports upgrading dependencies in various types of Docker definition f
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
+- [TODO](#todo)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## TODO
+
+- [ ] Linux packages
+- [ ] Some linux edge packages
 
 ## Resources
 

@@ -16,7 +16,7 @@ const defaultRules = [
   {
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
     "addLabels": [`${process.env.EXCERCISE_NAME}`, "{{depType}}", "{{datasource}}", "{{updateType}}"],
-    "commitMessageSuffix": `[${process.env.EXCERCISE_NAME}]`
+    "commitMessageSuffix": ``
   },
 ]
 

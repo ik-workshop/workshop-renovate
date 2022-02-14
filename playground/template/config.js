@@ -16,8 +16,8 @@ const defaultRules = [
   {
     "description": "Automatically add labels and message prefix",
     "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-    "addLabels": [process.env.EXCERCISE_NAME, 'kind/chore', "{{depType}}", "{{datasource}}", "{{updateType}}"],
-    "commitMessageSuffix": `({{packageFileDir}}) [${process.env.EXCERCISE_NAME}]`
+    "addLabels": [process.env.EXCERCISE_NAME, 'kind/chore', "{{datasource}}", "{{updateType}}"],
+    "commitMessageSuffix": '({{packageFile}})',
   },
   {
     "matchPackageNames": ["github-actions", "terraform"],
