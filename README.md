@@ -44,6 +44,7 @@
 - [ ] Dcoker with Hadolint
 - [ ] Limit dependency versions
 - [ ] Makefile renovate it
+- [ ] [Npm](https://docs.renovatebot.com/getting-started/private-packages/#add-npmtoken-to-renovate-config)
 
 ---
 

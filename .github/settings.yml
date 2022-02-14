@@ -51,3 +51,6 @@ labels:
   - name: gitlab-packages
     color: 403c3c
     description: Github Packages Datasource
+  - name: npm
+    color: 3d403c
+    description: npm dependencies updated
