@@ -34,7 +34,7 @@ DATADOG_HELM_CHART_VERSION="2.27.8"
 ```
 
 ```yml
-chart:\n\s*repository: (?<repository>.*?)\n\s*name: (?<depName>.*?)\n\s*version: (?<currentValue>.*)$
+chart:\n *repository: (?<repository>.*?)\n\s*name: (?<depName>.*?)\n\s*version: (?<currentValue>.*)$
 ---
 spec:
   releaseName: datadog
@@ -43,6 +43,17 @@ spec:
     name: datadog
     version: 1.0.1
 ```
+
+TODO: create a story
+
+![ex6](./ex6.assets/depname-regex.png)
+![ex6](./ex6.assets/improved-regex.png)
+![ex6](./ex6.assets/it-does-work.png)
+![ex6](./ex6.assets/looking-for-complex-regex.png)
+![ex6](./ex6.assets/not-found-ingress-chart.png)
+![ex6](./ex6.assets/regex-for-helm-chart.png)
+![ex6](./ex6.assets/should-work-regex.png)
+![ex6](./ex6.assets/simple-regex.png)
 
 ## Resources
 
