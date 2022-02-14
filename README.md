@@ -40,7 +40,8 @@
 
 ## TODO
 
-- [] Renovate `exercise` label
+- [x] Renovate `exercise` label
+- [ ] Dcoker with Hadolint
 
 ---
 

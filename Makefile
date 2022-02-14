@@ -54,6 +54,10 @@ skeleton: check-cmd
 	@touch exercises/$(name).README.md
 	@echo "# Exercise $(name). TODO(description) \n\n<!-- START doctoc -->\n<!-- END doctoc --> \n\n## Resources" >> exercises/$(name).README.md
 
+run5: ## Run exercise 2
+	@echo "Run Exercise 2"
+	@$(MAKE) run name=ex2
+
 run5: ## Run exercise 5
 	@echo "Run Exercise 5"
 	@$(MAKE) run name=ex5
