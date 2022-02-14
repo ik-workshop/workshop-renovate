@@ -11,7 +11,6 @@
 
 ---
 
-[![governance][governance-badge]][governance-action]
 [![governance.link-checker][governance.link-checker.badge]][governance.link-checker.status]
 
 ---
@@ -35,8 +34,9 @@
 
 ### Renovate Docs
 
+- [Example Exercises](./examples)
+- [Useful info](./docs/Notes.md)
 - [Configuration Options](https://docs.renovatebot.com/configuration-options/#registryurls)
-- [Documentation Examples](./examples)
 
 ## TODO
 

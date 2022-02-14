@@ -24,6 +24,8 @@ const defaultRules = [
   }
 ]
 
+const enableManagers = ["regex"]
+
 module.exports = {
   "platform": "github",
   "token": process.env.RENOVATE_TOKEN,
@@ -36,6 +38,7 @@ module.exports = {
   "recreateClosed": true,
   "onboarding": false,
   "requireConfig": false,
+  "extends": ["github>whitesource/merge-confidence:beta"],
   "hostRules": [
     {
       "hostType": "docker",
@@ -51,4 +54,5 @@ module.exports = {
   "additionalBranchPrefix": "{{packageFileDir}}-",
   "packageRules": [...defaultRules, ...rules],
   "regexManagers": managers,
+  "enabledManagers": enableManagers,
 }

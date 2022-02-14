@@ -4,9 +4,37 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
 
+- [Access Tokens](#access-tokens)
+  - [Create Github PAT token](#create-github-pat-token)
+  - [Docker Hub Token](#docker-hub-token)
+- [Run Locally](#run-locally)
 - [File matchers](#file-matchers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Access Tokens
+
+### Create Github PAT token
+
+It is also recommended to configure a [GitHub.com Personal Access Token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) (minimum scopes) as `GITHUB_COM_TOKEN` so that your bot can make authenticated requests to github.com for Changelog retrieval as well as for any dependency that uses GitHub tags.
+Without such a token, github.com's API will rate limit requests and make such lookups unreliable.
+
+![github-pat](./assets/renovate-pat-token.png)
+
+### Docker Hub Token
+
+[Documenation](https://docs.docker.com/docker-hub/access-tokens/)
+
+## Run Locally
+
+Export environment variables and execute `make run`.
+
+```sh
+export RENOVATE_TOKEN=XXXXXXXXXXXX
+export DOCKER_HUB_USERNAME=XXXXXXXXXXXX
+export DOCKER_HUB_TOKEN=XXXXXXXXXXXX
+make run
+```
 
 ## File matchers
 

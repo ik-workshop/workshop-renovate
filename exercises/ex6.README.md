@@ -22,10 +22,26 @@ make run5
 
 ## Pattern Matching
 
-```yaml
+```yml
 ^#\s*chart:\s*repository=(?<registryUrl>.*?)$\n.*?(?<depName>.*?)_HELM_CHART_VERSION=\"(?<currentValue>.*)\"
 # chart: repository=https://helm.datadoghq.com
 DATADOG_HELM_CHART_VERSION="2.27.8"
+```
+
+```yml
+^(?i)(?<depName>.*?)_HELM_CHART_VERSION=\"(?<currentValue>.*)\"
+DATADOG_HELM_CHART_VERSION="2.27.8"
+```
+
+```yml
+chart:\n\s*repository: (?<repository>.*?)\n\s*name: (?<depName>.*?)\n\s*version: (?<currentValue>.*)$
+---
+spec:
+  releaseName: datadog
+  chart:
+    repository: https://helm.datadoghq.com/
+    name: datadog
+    version: 1.0.1
 ```
 
 ## Resources

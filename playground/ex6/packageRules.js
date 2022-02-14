@@ -2,9 +2,9 @@
 "use strict";
 
 module.exports.rules = [
-  {
-    "matchPaths": ["*.env"],
-    "datasources": ["helm"],
-    "groupName": 'helmenv'
-  }
+  // {
+  //   "matchPaths": ["*.env"],
+  //   "datasources": ["helm"],
+  //   "groupName": 'helmenv'
+  // }
 ];
