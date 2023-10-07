@@ -38,4 +38,9 @@ module.exports.rules = [
       "executionMode": "branch",
     },
   },
+  // https://github.com/renovatebot/renovate/discussions/14361
+  {
+    "matchPaths": ["account**"],
+    "groupName": "{{{ replace '(account.*?)\\/.*' '$1' packageFileDir}}}"
+  }
 ];
