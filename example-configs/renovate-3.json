@@ -1,0 +1,76 @@
+{
+  "source": "https://repo1.dso.mil/big-bang/product/packages/nexus/-/blob/main/renovate.json?ref_type=heads",
+  "baseBranches": [
+    "main"
+  ],
+  "configWarningReuseIssue": false,
+  "dependencyDashboard": true,
+  "dependencyDashboardHeader": "- [ ] Sync upstream helm chart version with updated dependencies.",
+  "dependencyDashboardTitle": "Renovate: Upgrade Nexus Dependencies",
+  "draftPR": true,
+  "enabledManagers": [
+    "helm-values",
+    "regex"
+  ],
+  "ignorePaths": [
+    "chart/charts/**",
+    "chart/examples/**",
+    "chart/scripts/**"
+  ],
+  "labels": [
+    "nexus",
+    "renovate"
+  ],
+  "commitMessagePrefix": "SKIP UPDATE CHECK",
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "groupName": "Ironbank"
+    }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^chart/values\\.yaml$"
+      ],
+      "matchStrings": [
+        "image:[^\\S\\r\\n]+(?<depName>.+)\\s+tag:[^\\S\\r\\n]+(?<currentValue>[\\d\\.]+)"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "^chart/Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "- Nexus:\\s+(?<currentValue>.+)"
+      ],
+      "registryUrlTemplate": "https://registry1.dso.mil",
+      "depNameTemplate": "ironbank/sonatype/nexus/nexus",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "^chart/Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "appVersion:[^\\S\\r\\n]+(?<currentValue>.+)"
+      ],
+      "registryUrlTemplate": "https://registry1.dso.mil",
+      "depNameTemplate": "ironbank/sonatype/nexus/nexus",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [
+        "^chart/Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "image:[^\\S\\r\\n]+(?<depName>.+):(?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "separateMajorMinor": false
+}

@@ -60,5 +60,24 @@ module.exports.managers = [
     "autoReplaceStringTemplate": "'{{{depName}}}'\n    ref: {{{newValue}}}",
     "datasourceTemplate": "gitlab-tags",
     "versioningTemplate": "gitlab-tags"
+  },
+  // https://github.com/renovatebot/renovate/discussions/23426#discussioncomment-6489732
+  {
+    "description": "Update bitnami openldap image references in Chart.yaml",
+    "fileMatch": ["^charts\\/openldap-bitnami\\/Chart\\.yaml$"],
+    "matchStrings": [
+      "appVersion:\\s+(?<currentValue>.*?)"
+    ],
+    "depNameTemplate": "bitnami/openldap",
+    "datasourceTemplate": "docker"
+  },
+  {
+    "description": "Update bitnami openldap image references in README",
+    "fileMatch": ["^charts\\/openldap-bitnami\\/README\\.md$"],
+    "matchStrings": [
+      "\\[AppVersion:\\s+(?<currentValue>.*?)\\]"
+    ],
+    "depNameTemplate": "bitnami/openldap",
+    "datasourceTemplate": "docker"
   }
 ];

@@ -1,0 +1,53 @@
+{
+  "source": "https://github.com/renovatebot/renovate/discussions/23426#discussioncomment-6502602",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "regexManagers": [
+    {
+      "description": "Update bitnami openldap image references in Chart.yaml",
+      "fileMatch": [
+        "^charts\\/openldap-bitnami\\/Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "appVersion:\\s+(?<currentValue>.*)"
+      ],
+      "depNameTemplate": "bitnami/openldap",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Update bitnami openldap image references in README",
+      "fileMatch": [
+        "^charts\\/openldap-bitnami\\/README\\.md$"
+      ],
+      "matchStrings": [
+        "\\[AppVersion:\\s+(?<currentValue>.*?)\\]"
+      ],
+      "depNameTemplate": "bitnami/openldap",
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": [
+        "helm-requirements",
+        "helm-values",
+        "regex"
+      ],
+      "postUpgradeTasks": {
+        "commands": [
+          "version=$(grep '^version:' {{{parentDir}}}/charts/openldap-bitnami/Chart.yaml | awk '{print $2}')",
+          "major=$(echo $version | cut -d. -f1)",
+          "minor=$(echo $version | cut -d. -f2)",
+          "patch=$(echo $version | cut -d. -f3)",
+          "minor=$(expr $minor + 1)",
+          "echo XXX",
+          "echo $version",
+          "sed -i \"s/^version:.*/version: ${major}.${minor}.${patch}/g\" {{{parentDir}}}/charts/openldap-bitnami/Chart.yaml"
+        ],
+        "fileFilters": [
+          "**/Chart.yaml"
+        ],
+        "executionMode": "branch"
+      }
+    }
+  ]
+}
