@@ -63,5 +63,40 @@ module.exports.rules = [
     "automerge": false,
     "matchManagers": ["terragrunt-version"],
     "commitMessageSuffix": "[skip ci]"
-  }
+  },
+  // https://github.com/renovatebot/renovate/issues/8231#issuecomment-1290550687
+  {
+    "matchManagers": [
+      "helm-requirements",
+      "helm-values",
+    ],
+    "postUpgradeTasks": {
+      "commands": [
+        `version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
+        major=$(echo $version | cut -d. -f1)
+        minor=$(echo $version | cut -d. -f2)
+        patch=$(echo $version | cut -d. -f3)
+        minor=$(expr $minor + 1)
+        echo "Replacing $version with $major.$minor.$patch"
+        sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{parentDir}}}/Chart.yaml
+        cat {{{parentDir}}}/Chart.yaml
+        `
+      ],
+      "fileFilters": [
+        "**/Chart.yaml",
+      ],
+      "executionMode": "branch",
+    },
+  },
+  // ami filter
+  // https://github.com/renovatebot/renovate/pull/24086#issuecomment-1693760376
+  {
+    customType: "regex",
+    fileMatch: ['.*\.tfvars$'],
+    matchStrings: [
+      '.*amiFilter=(?<packageName>.*?)\n(.*currentImageName=(?<currentDigest>.*?)\n)?(.*\n)?.*?(?<depName>[a-zA-Z0-9-_:]*)[ ]*?[:|=][ ]*?["|\']?(?<currentValue>ami-[a-z0-9]{17})["|\']?.*',
+    ],
+    datasourceTemplate: 'aws-machine-image',
+    versioningTemplate: 'aws-machine-image',
+  },
 ];
