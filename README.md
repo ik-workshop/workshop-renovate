@@ -1,5 +1,7 @@
 # Workshop Blueprint
 
+- [Docs](https://docs.renovatebot.com/templates/#other-available-fields)
+
 ---
 
 ![](https://img.shields.io/github/commit-activity/m/ik-workshop/workshop-renovate)
