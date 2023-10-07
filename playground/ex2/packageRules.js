@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 "use strict";
 
+// https://github.com/renovatebot/renovate/issues/8231#issuecomment-1310786410
+// allowPostUpgradeCommandTemplating: true,
+// allowedPostUpgradeCommands: ["^.*",],
+
 module.exports.rules = [
   {
     "postUpgradeTasks": {
